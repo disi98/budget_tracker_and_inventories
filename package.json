@@ -1,4 +1,8 @@
 {
+  "scripts": {
+    "build": "tailwindcss build -i ./budget/static/css/tw_input/input.css -o ./budget/static/css/tw_output/output.csss",
+    "watch": "tailwindcss -i ./budget/static/css/tw_input/input.css -o ./budget/static/css/tw_output/output.css --watch"
+  },
   "devDependencies": {
     "tailwindcss": "^3.4.11"
   },
