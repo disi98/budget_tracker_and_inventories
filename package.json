@@ -1,6 +1,6 @@
 {
   "scripts": {
-    "build": "tailwindcss build -i ./budget/static/css/tw_input/input.css -o ./budget/static/css/tw_output/output.csss",
+    "build": "tailwindcss build -i ./budget/static/css/tw_input/input.css -o ./budget/static/css/tw_output/output.css",
     "watch": "tailwindcss -i ./budget/static/css/tw_input/input.css -o ./budget/static/css/tw_output/output.css --watch"
   },
   "devDependencies": {

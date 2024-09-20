@@ -2,3 +2,4 @@ venv
 requirements.txt
 node_modules
 local-cdn
+c_intro*
