@@ -30,7 +30,7 @@ CSRF_TRUSTED_ORIGINS = ['https://localhost:8000']
 
 
 LOGIN_URL = '/login/'
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL = '/home_dashboard/'
 LOGOUT_REDIRECT_URL = '/'
 
 
@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "core",
     "dashboard",
+    "inventory",
 ]
 
 MIDDLEWARE = [
@@ -136,9 +137,9 @@ STATIC_ROOT = BASE_DIR.parent / "local-cdn" / "static"
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 
-LOGIN_URL = '/index/'
-LOGIN_REDIRECT_URL = '/dashbord/'
-LOGOUT_REDIRECT_URL = '/'
+# LOGIN_URL = '/index/'
+# LOGIN_REDIRECT_URL = '/dashbord/'
+# LOGOUT_REDIRECT_URL = '/'
 
 
 
