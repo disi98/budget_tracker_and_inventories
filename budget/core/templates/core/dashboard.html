@@ -33,11 +33,10 @@
 
                 <span class="flex-1 ms-3 whitespace-nowrap">InStock Items</span>
                 <span class="inline-flex items-center justify-center px-2 ms-3 text-sm font-medium text-blue-800 bg-blue-400 rounded-full dark:bg-gray-700 dark:text-gray-300">
-                  {% if user.is_authenticated %}
-                     {{ instock }}
-                  {% else %}
-                     Guest
-                  {% endif %}
+                 
+                     {% block instock %}{% endblock %}
+                  
+                    
                 </span>
              </a>
           </li>
@@ -53,8 +52,8 @@
 
 
                 <span class="flex-1 ms-3 whitespace-nowrap">Sold Items</span>
-                <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">
-                  {{ sold }}
+                <span class="inline-flex items-center justify-center w-3 h-3 p-3 ms-3 text-sm font-medium text-blue-800 bg-blue-400 rounded-full dark:bg-blue-900 dark:text-blue-300">
+                  {% block sold %}{% endblock %}
                 </span>
              </a>
           </li>

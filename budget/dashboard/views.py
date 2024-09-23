@@ -12,6 +12,8 @@ def home_dashboard(request):
 
 @login_required
 def stock(request):
+    instock = InventoryItem.total_quantity_in_stock()
+    sold = InventoryItem.total_quantity_sold
     if request.method == 'POST':
         form = InventoryItemForm(request.POST)
         if form.is_valid():
@@ -21,4 +23,4 @@ def stock(request):
             return redirect('dashboard:sales_list')
     else:
         form = InventoryItemForm()
-    return render(request, 'dashboard/stock.html', {'form': form})
+    return render(request, 'dashboard/stock.html', {'form': form, 'instock': instock, 'sold': sold})

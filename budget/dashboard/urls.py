@@ -7,5 +7,5 @@ app_name = "dashboard"
 
 urlpatterns = [
     path("", home_dashboard, name="home_dashboard"),
-    path("stock/", stock, name="add_stock"),
+    path("stock/", stock, name="stock"),
 ]
