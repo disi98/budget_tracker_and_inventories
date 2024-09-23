@@ -5,7 +5,9 @@ from inventory.models import InventoryItem
 
 @login_required
 def home_dashboard(request):
-    return render(request, "dashboard/home_dashboard.html")
+    sold = InventoryItem.total_quantity_sold()
+    instock = InventoryItem.total_quantity_in_stock()
+    return render(request, "dashboard/home_dashboard.html", {"instock": instock, "sold": sold})
 
 
 @login_required
