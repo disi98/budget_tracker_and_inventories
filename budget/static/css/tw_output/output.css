@@ -1129,10 +1129,6 @@ input:checked + .toggle-bg {
   z-index: 50;
 }
 
-.m-4 {
-  margin: 1rem;
-}
-
 .mx-auto {
   margin-left: auto;
   margin-right: auto;
@@ -1270,16 +1266,12 @@ input:checked + .toggle-bg {
   width: 2rem;
 }
 
-.w-full {
-  width: 100%;
-}
-
-.w-3\/4 {
-  width: 75%;
-}
-
 .w-80 {
   width: 20rem;
+}
+
+.w-full {
+  width: 100%;
 }
 
 .flex-1 {
@@ -1764,14 +1756,14 @@ input:checked + .toggle-bg {
   color: rgb(3 84 63 / var(--tw-text-opacity));
 }
 
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity));
-}
-
 .text-green-900 {
   --tw-text-opacity: 1;
   color: rgb(1 71 55 / var(--tw-text-opacity));
+}
+
+.text-white {
+  --tw-text-opacity: 1;
+  color: rgb(255 255 255 / var(--tw-text-opacity));
 }
 
 .opacity-0 {
@@ -2083,21 +2075,12 @@ input:checked + .toggle-bg {
 }
 
 @media (min-width: 640px) {
-  .sm\:mx-5 {
-    margin-left: 1.25rem;
-    margin-right: 1.25rem;
-  }
-
   .sm\:ml-64 {
     margin-left: 16rem;
   }
 
   .sm\:hidden {
     display: none;
-  }
-
-  .sm\:w-3\/4 {
-    width: 75%;
   }
 
   .sm\:max-w-md {
@@ -2109,21 +2092,12 @@ input:checked + .toggle-bg {
     transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
   }
 
-  .sm\:items-end {
-    align-items: flex-end;
-  }
-
   .sm\:items-center {
     align-items: center;
   }
 
   .sm\:p-8 {
     padding: 2rem;
-  }
-
-  .sm\:px-5 {
-    padding-left: 1.25rem;
-    padding-right: 1.25rem;
   }
 }
 
@@ -2138,18 +2112,6 @@ input:checked + .toggle-bg {
 
   .md\:items-end {
     align-items: flex-end;
-  }
-
-  .md\:items-center {
-    align-items: center;
-  }
-
-  .md\:justify-end {
-    justify-content: flex-end;
-  }
-
-  .md\:justify-center {
-    justify-content: center;
   }
 
   .md\:space-y-6 > :not([hidden]) ~ :not([hidden]) {
@@ -2167,22 +2129,6 @@ input:checked + .toggle-bg {
 @media (min-width: 976px) {
   .lg\:w-1\/2 {
     width: 50%;
-  }
-
-  .lg\:w-3\/4 {
-    width: 75%;
-  }
-
-  .lg\:w-10 {
-    width: 2.5rem;
-  }
-
-  .lg\:w-64 {
-    width: 16rem;
-  }
-
-  .lg\:w-80 {
-    width: 20rem;
   }
 
   .lg\:items-center {

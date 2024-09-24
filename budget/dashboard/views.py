@@ -28,4 +28,10 @@ def stock(request):
 @login_required
 def sold(request):
     items = InventoryItem.objects.all()
-    return render(request, 'dashboard/sold.html', {'items': items})
+
+    instock = InventoryItem.total_quantity_in_stock()
+    sold = InventoryItem.total_quantity_sold
+
+    sold_items = InventoryItem.objects.filter(transaction_type=InventoryItem.SOLD)
+
+    return render(request, 'dashboard/sold.html', {'items': items, 'instock': instock, 'sold': sold, 'sold_items': sold_items})
