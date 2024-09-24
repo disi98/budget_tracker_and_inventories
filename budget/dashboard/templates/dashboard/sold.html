@@ -1,0 +1,49 @@
+{% extends 'core/dashboard.html' %}
+{% load static %}
+
+{% block title %}Add Stock{% endblock %}
+
+{% block instock %}
+    {{ instock }}
+{% endblock %}
+
+{% block sold %}
+    {{ sold }}
+{% endblock %}
+
+{% block content %}
+
+
+<div class="p-4 sm:ml-64">
+    <div class="p-4 border-2 border-green-200 border-dashed rounded-lg dark:border-gray-700">
+       <div class="grid grid-cols-2 gap-1 mb-4">
+            {% csrf_token %}
+           
+          <div class="flex items-center justify-between h-24 lg:w-1/2 rounded bg-brightRedSupLight dark:bg-gray-800">
+            {{ instock }}
+             <p class="text-2xl ml-5 text-blue-800 dark:text-gray-500">
+                {% if user.is_authenticated %}
+                   {{ instock }}
+                {% else %}
+                   Guest
+                {% endif %}
+             </p>
+             <div class="mr-5 text-blue-800">
+                <a href="{% url 'dashboard:stock' %}">Add Stock</a>
+             </div>
+
+             
+          </div>
+          
+          
+       </div>
+    </div>
+ </div>
+
+
+
+
+
+
+
+{% endblock %}

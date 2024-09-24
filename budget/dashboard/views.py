@@ -20,7 +20,12 @@ def stock(request):
             inventory_item = form.save(commit=False)
             inventory_item.total_price = inventory_item.quantity * inventory_item.price_per_unit
             inventory_item.save()
-            return redirect('dashboard:sales_list')
+            return redirect('dashboard:sold')
     else:
         form = InventoryItemForm()
     return render(request, 'dashboard/stock.html', {'form': form, 'instock': instock, 'sold': sold})
+
+@login_required
+def sold(request):
+    items = InventoryItem.objects.all()
+    return render(request, 'dashboard/sold.html', {'items': items})
