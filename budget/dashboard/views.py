@@ -20,7 +20,7 @@ def stock(request):
             inventory_item = form.save(commit=False)
             inventory_item.total_price = inventory_item.quantity * inventory_item.price_per_unit
             inventory_item.save()
-            return redirect('dashboard:sold')
+            return redirect('dashboard:stock')
     else:
         form = InventoryItemForm()
     return render(request, 'dashboard/stock.html', {'form': form, 'instock': instock, 'sold': sold})
@@ -30,7 +30,7 @@ def sold(request):
     items = InventoryItem.objects.all()
 
     instock = InventoryItem.total_quantity_in_stock()
-    sold = InventoryItem.total_quantity_sold
+    sold = InventoryItem.total_quantity_sold()
 
     sold_items = InventoryItem.objects.filter(transaction_type=InventoryItem.SOLD)
 

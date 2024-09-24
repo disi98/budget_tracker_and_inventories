@@ -16,16 +16,27 @@
 
 <div class="p-4 sm:ml-64">
     <div class="p-4 border-2 border-green-200 border-dashed rounded-lg dark:border-gray-700">
-       <div class="grid grid-cols-2 gap-1 mb-4">
+       <div class="grid mb-4">
             {% csrf_token %}
-           
-          <div class="flex items-center justify-between h-24 lg:w-1/2 rounded bg-brightRedSupLight dark:bg-gray-800">
+            <div class="grid justify-end lg:w-1/2">
+               <a href="">
+                  <h1 class="flex text-blue-800 font-medium text-lg px-2 bg-green-200 border rounded-lg">
+                     <img src="{% static 'img/add-svgrepo-com.svg' %}" alt="plus" class="w-7 h-7">
+                     Add to stock or sell
+                  </h1>
+               </a>
+            </div>
+          <div class="flex justify-center w-full lg:w-1/2 rounded bg-brightRedSupLight dark:bg-gray-800">
+
             <ul>
-               <!-- {%if user.is_authenticated %} -->
+               {%if user.is_authenticated %}
+               {% for item in sold_items %}
                   <li>
-                     {{ sold_items }}
+                     {{ item }}
                   </li>
-               <!-- {% endif %} -->
+
+               {% endfor %}
+               {% endif %}
             </ul>
              
              
