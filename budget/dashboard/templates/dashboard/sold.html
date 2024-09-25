@@ -19,7 +19,7 @@
        <div class="grid mb-4">
             {% csrf_token %}
             <div class="grid justify-end lg:w-1/2">
-               <a href="">
+               <a href="{% url 'dashboard:stock' %}">
                   <h1 class="flex text-blue-800 font-medium text-lg px-2 bg-green-200 border rounded-lg">
                      <img src="{% static 'img/add-svgrepo-com.svg' %}" alt="plus" class="w-7 h-7">
                      Add to stock or sell
