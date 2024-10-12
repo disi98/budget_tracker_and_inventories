@@ -1,0 +1,48 @@
+{% extends 'core/dashboard.html' %}
+{% load static %}
+
+{% block title %}Reports{% endblock %}
+
+{% block instock %}
+    {{ instock }}
+{% endblock %}
+
+{% block sold %}
+    {{ sold }}
+{% endblock %}
+
+{% block content %}
+    <div class="p-4 sm:ml-64">
+        <form method="get" class="m-4">
+            <label for="date" class="text-gray-500">Select Date:</label>
+            <input type="date" id="date" name="date" class="h-6 border-2 rounded-lg text-gray-500" value="{{ selected_date }}">
+            <button type="submit" class="text-green-500 pl-3">Update</button>
+        </form>
+        <div class="p-4 grid lg:grid-cols-3 lg:gap-4 items-center justify-between border-2 border-green-200 border-dashed rounded-lg dark:border-gray-700">
+            <div class="w-full mb-4 p-2 bg-gray-100">
+                <p class="text-blue-800 text-sm font-medium pb-1">Total items in stock and sales on {{ selected_date }}</p>
+                <canvas id="inventoryChart" width="500" height="300" class="w-full md:h-vh lg:h-vh md:mt-5"></canvas>
+            </div>  
+            <div class="w-full mb-4 p-2 bg-gray-100">
+                <p class="text-blue-800 text-sm font-medium pb-1">Total stock and sales price on {{ selected_date }}</p>
+                <canvas id="inventoryChartPrice" width="500" height="300" class="w-full md:h-vh lg:h-vh md:mt-5"></canvas>
+            </div>
+            <div class="w-full mb-4 p-2 bg-gray-100">
+                <p class="text-blue-800 text-sm font-medium pb-1">Number of Items Sold for Each Item on {{ selected_date }}</p>
+                <img src="data:image/png;base64,{{ image_sold_base64 }}" alt="Items Sold Chart" class="w-full md:h-vh lg:h-vh md:mt-5"/>
+            </div>
+            <div class="w-full mb-4 p-2 bg-gray-100">
+                <p class="text-blue-800 text-sm font-medium pb-1">Number of Items Stocked for Each Item on {{ selected_date }}</p>
+                <img src="data:image/png;base64,{{ image_stocked_base64 }}" alt="Items Stocked Chart" class="w-full md:h-vh lg:h-vh md:mt-5"/>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        var daily_stock = {{ daily_stock }};
+        var daily_sales = {{ daily_sales }};
+        var daily_stock_price = {{ daily_stock_price }};
+        var daily_sales_price = {{ daily_sales_price }};
+    </script>
+    <script src="{% static 'js/inventory_reports.js' %}"></script>        
+{% endblock %}

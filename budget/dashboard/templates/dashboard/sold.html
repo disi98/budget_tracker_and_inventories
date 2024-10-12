@@ -12,52 +12,161 @@
 {% endblock %}
 
 {% block content %}
-
-
 <div class="p-4 sm:ml-64">
     <div class="p-4 border-2 border-green-200 border-dashed rounded-lg dark:border-gray-700">
        <div class="grid mb-4">
             {% csrf_token %}
-            <div class="grid justify-end lg:w-1/2">
-               <a href="{% url 'dashboard:stock' %}">
-                  <h1 class="flex text-blue-800 font-medium text-lg px-2 bg-green-200 border rounded-lg">
+
+            <div class="grid w-40 mb-2">
+               <a href="{% url 'dashboard:sell_item' %}">
+                  <h1 class="flex text-blue-800 font-medium text-lg px-2 bg-green-100 border rounded-lg">
                      <img src="{% static 'img/add-svgrepo-com.svg' %}" alt="plus" class="w-7 h-7">
-                     Add to stock or sell
+                     Sell an item
                   </h1>
                </a>
             </div>
-          <div class="flex justify-center w-full lg:w-1/2 rounded bg-gray-100 pb-4 dark:bg-gray-800">
 
-            <ul class="w-full px-2">
-               <li class="py-3 text-center w-full">
-                  <h1 class="text-lg font-bold text-blue-800">
-                     Sold items
+            <div class="grid w-40 mb-2">
+               <a href="{% url 'dashboard:add_category' %}">
+                  <h1 class="flex text-blue-800 font-medium text-lg px-2 bg-green-100 border rounded-lg">
+                     <img src="{% static 'img/add-svgrepo-com.svg' %}" alt="plus" class="w-7 h-7">
+                     Add Category
                   </h1>
-               </li>
-               {%if user.is_authenticated %}
-               {% for item in sold_items %}
-                  <li class="bg-gray-200 mb-1 py-2 px-2 shadow shaddow-2xl shadow-gray-200 border border-gray-300">
-                     {{ item }}
-                  </li>
+               </a>
+            </div>
 
-               {% endfor %}
-               {% endif %}
-            </ul>
-             
-             
+            <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
+               <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
+                  <thead class="text-xs text-gray-700 uppercase bg-gray-200 dark:bg-gray-700 dark:text-gray-400">
+                     <tr>
+                           <th scope="col" class="md:px-6 md:py-3 lg:px-6 lg:py-3 border-2 border-gray-300">
+                              Item name
+                           </th>
+                           <th scope="col" class="md:px-6 md:py-3 lg:px-6 lg:py-33 border-2 border-gray-300">
+                              Category
+                           </th>
+                           <th scope="col" class="md:px-6 md:py-3 lg:px-6 lg:py-33 border-2 border-gray-300">
+                              Qnty
+                           </th>
+                           <th scope="col" class="md:px-6 md:py-3 lg:px-6 lg:py-33 border-2 border-gray-300">
+                              Unit Price
+                           </th>
+                           <th scope="col" class="md:px-6 md:py-3 lg:px-6 lg:py-33 border-2 border-gray-300">
+                              Total Price
+                           </th>
+                           <th scope="col" class="hidden md:block md:px-6 md:py-3 lg:px-6 lg:py-33 border-2 border-gray-300">
+                              Action
+                           </th>
+                     </tr>
+                  </thead>
+                  <tbody>
+                     {% for item in page_obj %}
+                        <tr id="item-row-{{ item.id }}" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
+                           <th scope="row" class="md:px-6 md:py-3 lg:px-6 lg:py-3 bg-gray-50 font-medium text-gray-900 dark:text-white border-gray-300">
+                              {{ item.name }} || {{ item.id }}
+                           </th>
+                           <td class="md:px-6 md:py-3 lg:px-6 lg:py-3 border border-gray-300">
+                              {{ item.category }}
+                           </td>
+                           <td class="md:px-6 md:py-3 lg:px-6 lg:py-3 border border-gray-300">
+                              {{ item.quantity }}
+                           </td>
+                           <td class="md:px-6 md:py-3 lg:px-6 lg:py-3 border border-gray-300">
+                              {{ item.price_per_unit }}
+                           </td>
+                           <td class="md:px-6 md:py-3 lg:px-6 lg:py-3 border border-gray-300">
+                              {{ item.total_price }}
+                           </td>
+                           <td class="hidden md:block md:px-6 md:py-3 lg:px-6 lg:py-3 text-red-600 border border-gray-300">
+                              <button class="hidden md:flex lg:flex font-medium px-3 border rounded-lg py-1 bg-red-200 dark:text-blue-500 hover:underline" onclick="deleteItem({{ item.id }})">DELETE</button>
+                           </td>
+                        </tr>
+                     {% endfor %}
+                  </tbody>
+               </table>
+               <div class="pagination">
+                   <span class="step-links">
+                       {% if page_obj.has_previous %}
+                           <a href="?page=1">&laquo; first</a>
+                           <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                       {% endif %}
 
-             
+                       <span class="current">
+                           Page {{ page_obj.number }} of {{ page_obj.paginator.num_pages }}.
+                       </span>
+
+                       {% if page_obj.has_next %}
+                           <a href="?page={{ page_obj.next_page_number }}">next</a>
+                           <a href="?page={{ page_obj.paginator.num_pages }}">last &raquo;</a>
+                       {% endif %}
+                   </span>
+               </div>
+               <div id="success-message" class="bg-gray-200 mt-4 text-center" style="display: none; color: red; font-weight: bold;"></div>
+            </div>
           </div>
-          
-          
        </div>
     </div>
- </div>
+</div>
 
-
-
-
-
-
-
+<script>
+   function getCookie(name) {
+       let cookieValue = null;
+       if (document.cookie && document.cookie !== '') {
+           const cookies = document.cookie.split(';');
+           for (let i = 0; i < cookies.length; i++) {
+               const cookie = cookies[i].trim();
+               if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                   cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                   break;
+               }
+           }
+       }
+       return cookieValue;
+   }
+   
+   function confirmDeleteItem(itemId) {
+       if (confirm('Are you sure you want to delete this item?')) {
+           deleteItem(itemId);
+       }
+   }
+   
+   function deleteItem(itemId) {
+       fetch(`/dashboard/delete-item/${itemId}/`, {  // Ensure the URL matches the pattern in urls.py
+           method: 'POST',
+           headers: {
+               'X-CSRFToken': getCookie('csrftoken'),
+               'Content-Type': 'application/json'
+           },
+       })
+       .then(response => {
+           if (!response.ok) {
+               throw new Error('Network response was not ok');
+           }
+           return response.json();
+       })
+       .then(data => {
+           if (data.success) {
+               // Remove the item row from the table
+               document.getElementById(`item-row-${itemId}`).remove();
+               // Display success message
+               displaySuccessMessage('Item successfully deleted.');
+           } else {
+               alert('Failed to delete the item.');
+           }
+       })
+       .catch(error => {
+           console.error('There was a problem with the fetch operation:', error);
+           alert('Failed to delete the item.');
+       });
+   }
+   
+   function displaySuccessMessage(message) {
+       const successMessageElement = document.getElementById('success-message');
+       successMessageElement.textContent = message;
+       successMessageElement.style.display = 'block';
+       setTimeout(() => {
+           successMessageElement.style.display = 'none';
+       }, 3000); // Hide after 3 seconds
+   }
+</script>
 {% endblock %}

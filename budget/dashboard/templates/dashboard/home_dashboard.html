@@ -11,39 +11,149 @@
 {% endblock %}
 
 {% block content %}
+
+
    <div class="p-4 sm:ml-64">
-      <div class="p-4 border-2 border-green-200 border-dashed rounded-lg dark:border-gray-700">
-         <div class="grid grid-cols-2 gap-1 mb-4">
+      
 
-            <div class="flex items-center justify-between h-24 lg:w-1/2 rounded bg-brightRedSupLight dark:bg-gray-800">
-               <!-- <div class="text-green-800 text-2xl">
-                  <i class="fa-solid fa-business-time" class=""></i>
-               </div> -->
+      <div class="p-4 mt-2 border-2 border-green-200 border-dashed rounded-lg dark:border-gray-700">
+         <div class="grid lg:grid-cols-4 gap-1 mb-4">
 
-               <p class="text-2xl ml-5 text-blue-800 dark:text-gray-500">
-                  {% if user.is_authenticated %}
-                     {{ instock }}
-                  {% else %}
-                     Guest
-                  {% endif %}
-               </p>
-               <div class="mr-5 text-blue-800">
-                  <a href="{% url 'dashboard:stock' %}">Add Stock</a>
+
+
+            <div class="max-w-sm p-6 bg-gray-50 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+               <div class="flex">
+                  <svg class="flex-shrink-0 w-10 h-10 text-gray-50 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" stroke="#0ba24d"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 16H13C13.6667 16 15 15.6 15 14C15 12.4 13.6667 12 13 12H11C10.3333 12 9 11.6 9 10C9 8.4 10.3333 8 11 8H12M12 16H9M12 16V18M15 8H12M12 8V6M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#0ba24d" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g>
+                  </svg>
+                  <h1>
+                     <h5 class="text-2xl pl-3 font-semibold tracking-tight text-gray-900 dark:text-white">{{ instock }}</h5>
+                  </h1>
                </div>
-            </div>
-            <div class="flex items-center justify-center lg:w-1/2 h-24 rounded bg-green-100 dark:bg-gray-800">
-               <p class="text-2xl text-blue-800 dark:text-gray-500">
-                  {% if user.is_authenticated %}
-                     {{ sold }}
-                  {% else %}
-                  Guest
-                  {% endif %}
-               </p>
+               <p class="mb-3 font-normal text-gray-600 dark:text-gray-400">Items in stock</p>
+               <a href="{% url 'dashboard:stock_list' %}" class="inline-flex font-medium items-center text-blue-600 hover:underline">
+                   View stocked items avaialable
+                   <svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                       <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"/>
+                   </svg>
+               </a>
+           </div>
 
+
+            <div class="max-w-sm p-6 bg-gray-50 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+               <div class="flex">
+                  <svg class="flex-shrink-0 w-10 h-10 text-gray-50 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="#0ba24d"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <path d="M12 16H13C13.6667 16 15 15.6 15 14C15 12.4 13.6667 12 13 12H11C10.3333 12 9 11.6 9 10C9 8.4 10.3333 8 11 8H12M12 16H9M12 16V18M15 8H12M12 8V6M21 12C21 16.9706 16.9706 21 12 21C7.02944 21 3 16.9706 3 12C3 7.02944 7.02944 3 12 3C16.9706 3 21 7.02944 21 12Z" stroke="#cf0707" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path> </g></svg>
+                  <h1>
+                     <h5 class="text-2xl pl-3 font-semibold tracking-tight text-gray-900 dark:text-white">{{ sold }}</h5>
+                  </h1>
+               </div>
+               <p class="mb-3 font-normal text-gray-600 dark:text-gray-400">All time sold items</p>
+               <a href="{% url 'dashboard:stock_list' %}" class="inline-flex font-medium items-center text-red-600 hover:underline">
+                  View sales list
+                  <svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"/>
+                  </svg>
+               </a>
+         </div>
+
+
+         <div class="max-w-sm p-6 bg-gray-50 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div class="flex">
+               <svg class="flex-shrink-0 w-10 h-10 text-gray-50 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="#81bc01" height="200px" width="200px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 386.651 386.651" xml:space="preserve" stroke="#81bc01"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <path d="M342.367,135.781c-2.674-1.367-5.889-1.122-8.324,0.635l-138.556,99.968l-89.233-83.725 c-3.032-2.844-7.736-2.892-10.826-0.112l-74.395,66.959c-1.685,1.518-2.648,3.679-2.648,5.946v91.451c0,4.418,3.582,8,8,8h312.339 c4.418,0,8-3.582,8-8v-174C346.724,139.899,345.041,137.149,342.367,135.781z M53.507,308.903H34.385v-79.889l19.122-17.211 V308.903z M88.045,308.903H69.507v-111.5l18.538-16.685V308.903z M122.582,308.903h-18.538V172.526l18.538,17.393V308.903z M157.12,308.903h-18.538V204.931l18.538,17.394V308.903z M192.015,308.903H173.12v-71.565l16.227,15.226 c0.791,0.741,1.702,1.288,2.667,1.65V308.903z M226.91,308.903h-18.896v-61.828l18.896-13.634V308.903z M261.806,308.903H242.91 v-87.006l18.895-13.633V308.903z M296.701,308.903h-18.896V196.72l18.896-13.634V308.903z M330.724,308.903h-18.022v-137.36 l18.022-13.003V308.903z"></path> <path d="M385.375,65.087c-1.439-2.148-3.904-3.404-6.461-3.337l-50.696,1.368c-3.471,0.094-6.429,2.547-7.161,5.941 c-0.732,3.395,0.95,6.85,4.074,8.366l11.846,5.75L196.96,183.012l-95.409-86.504c-4.738-4.296-11.955-4.322-16.723-0.062 L4.173,168.491c-5.149,4.599-5.594,12.501-0.995,17.649c4.598,5.148,12.499,5.594,17.649,0.995l72.265-64.55l94.533,85.709 c2.369,2.147,5.376,3.239,8.398,3.239c2.532,0,5.074-0.767,7.255-2.322L350.82,104.01l0.701,11.074 c0.22,3.464,2.777,6.329,6.193,6.939c0.444,0.079,0.889,0.118,1.328,0.118c2.938,0,5.662-1.724,6.885-4.483l20.077-45.327 C387.052,69.968,386.815,67.234,385.375,65.087z"></path> </g> </g></svg>
+               <h1>
+                  <h5 class="text-2xl pl-3 font-semibold tracking-tight text-gray-900 dark:text-white">{{ alltime_stock }}</h5>
+               </h1>
             </div>
+            <p class="mb-3 font-normal text-gray-600 dark:text-gray-400">All time stock</p>
+            <a href="{% url 'dashboard:stock_list' %}" class="inline-flex font-medium items-center text-blue-600 hover:underline">
+                View all time items stocked
+                <svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"/>
+                </svg>
+            </a>
+        </div>
+
+
+      <div class="max-w-sm p-6 bg-gray-50 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+         <div class="flex">
+            <svg class="flex-shrink-0 w-10 h-10 text-gray-50 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="#0c9d29" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 508 508" xml:space="preserve" stroke="#0c9d29"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M371.712,260.7c-1.5-7.2-6.1-13-13.9-17.5c-7.7-4.4-17.5-6.7-29.4-6.7c-11.9,0-21,1.9-27.3,5.8 c-6.3,3.9-11.4,10-15.1,18.3h-30.844c2.629-4.975,8.706-10.541,18.044-16.7l-23.5-11.1c-13.2,8.5-21.2,17.8-24,27.8h-15.2v12.6 h14.5c1.5,7.6,6.2,13.7,14,18.2c7.8,4.6,17.6,6.8,29.6,6.8s21.2-2,27.7-6.1c6.5-4.1,11.7-10.4,15.6-19h30 c-2.1,4.3-6.3,8.9-12.5,13.9l24.6,10c9.6-7.8,15.3-15.7,17.3-23.7h10.6v-12.6H371.712z M266.913,279.4c-6.4,0-10.7-2-12.9-6.1 h25.6C277.712,277.2,272.812,279.4,266.913,279.4z M318.612,260.7c2.9-3.4,7.1-5.1,12.7-5.1c5.6,0,9.4,1.7,11.5,5.1H318.612z"></path> </g> </g> <g> <g> <path d="M450.913,0h-102.8c-7.8,0-14.1,6.3-14.1,14.1c0,7.8,6.3,14.1,14.1,14.1h68.7L268.113,177l-54.3-54.3 c-5.5-5.5-14.4-5.5-20,0l-146.7,146.7c-5.5,5.5-5.5,14.4,0,20c4.8,4.8,15.4,4.5,20,0l136.7-136.7l36.1,36.1 c-59.3,11.4-99.5,40.7-99.5,76.9v150.8c0,51.3,68.5,91.5,155.8,91.5c87.4,0,155.8-40.2,155.8-91.5V265.6 c0-45.9-64.4-80.7-150.7-82l135.5-135.4v68.7c0,7.8,6.3,14.1,14.1,14.1c7.8,0,14.1-6.3,14.1-14.1V14.1 C465.012,6.3,458.712,0,450.913,0z M423.813,416.5c0,30.5-51.3,63.3-127.6,63.3s-127.6-32.7-127.6-63.3v-24.3 c28,23.4,74.2,38.4,127.6,38.4s99.7-15,127.6-38.4V416.5z M423.813,339L423.813,339c0,30.6-51.3,63.3-127.6,63.3 s-127.6-32.7-127.6-63.3v-25.1c27.7,20.8,73.6,33.9,127.6,33.9c54.1,0,99.9-13.1,127.6-33.9V339z M423.812,265.6 c0,25.5-52.4,54-127.6,54s-127.6-28.4-127.6-54c0-25.6,52.4-54,127.6-54C371.413,211.7,423.812,240.1,423.812,265.6z"></path> </g> </g> </g></svg>
+            <h1>
+               <h5 class="text-2xl pl-3 font-semibold tracking-tight text-gray-900 dark:text-white">{{ total_sales }}</h5>
+            </h1>
+         </div>
+         <p class="mb-3 font-normal text-gray-600 dark:text-gray-400">All time amount made on sales</p>
+         <a href="{% url 'dashboard:stock_list' %}" class="inline-flex font-medium items-center text-blue-600 hover:underline">
+             View the sales list
+             <svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"/>
+             </svg>
+         </a>
+      </div>
+
+
+
+
+
+      <div class="max-w-sm p-6 bg-gray-50 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+         <div class="flex">
+            <svg class="flex-shrink-0 w-10 h-10 text-gray-50 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="#0c9d29" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 508 508" xml:space="preserve" stroke="#0c9d29"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M371.712,260.7c-1.5-7.2-6.1-13-13.9-17.5c-7.7-4.4-17.5-6.7-29.4-6.7c-11.9,0-21,1.9-27.3,5.8 c-6.3,3.9-11.4,10-15.1,18.3h-30.844c2.629-4.975,8.706-10.541,18.044-16.7l-23.5-11.1c-13.2,8.5-21.2,17.8-24,27.8h-15.2v12.6 h14.5c1.5,7.6,6.2,13.7,14,18.2c7.8,4.6,17.6,6.8,29.6,6.8s21.2-2,27.7-6.1c6.5-4.1,11.7-10.4,15.6-19h30 c-2.1,4.3-6.3,8.9-12.5,13.9l24.6,10c9.6-7.8,15.3-15.7,17.3-23.7h10.6v-12.6H371.712z M266.913,279.4c-6.4,0-10.7-2-12.9-6.1 h25.6C277.712,277.2,272.812,279.4,266.913,279.4z M318.612,260.7c2.9-3.4,7.1-5.1,12.7-5.1c5.6,0,9.4,1.7,11.5,5.1H318.612z"></path> </g> </g> <g> <g> <path d="M450.913,0h-102.8c-7.8,0-14.1,6.3-14.1,14.1c0,7.8,6.3,14.1,14.1,14.1h68.7L268.113,177l-54.3-54.3 c-5.5-5.5-14.4-5.5-20,0l-146.7,146.7c-5.5,5.5-5.5,14.4,0,20c4.8,4.8,15.4,4.5,20,0l136.7-136.7l36.1,36.1 c-59.3,11.4-99.5,40.7-99.5,76.9v150.8c0,51.3,68.5,91.5,155.8,91.5c87.4,0,155.8-40.2,155.8-91.5V265.6 c0-45.9-64.4-80.7-150.7-82l135.5-135.4v68.7c0,7.8,6.3,14.1,14.1,14.1c7.8,0,14.1-6.3,14.1-14.1V14.1 C465.012,6.3,458.712,0,450.913,0z M423.813,416.5c0,30.5-51.3,63.3-127.6,63.3s-127.6-32.7-127.6-63.3v-24.3 c28,23.4,74.2,38.4,127.6,38.4s99.7-15,127.6-38.4V416.5z M423.813,339L423.813,339c0,30.6-51.3,63.3-127.6,63.3 s-127.6-32.7-127.6-63.3v-25.1c27.7,20.8,73.6,33.9,127.6,33.9c54.1,0,99.9-13.1,127.6-33.9V339z M423.812,265.6 c0,25.5-52.4,54-127.6,54s-127.6-28.4-127.6-54c0-25.6,52.4-54,127.6-54C371.413,211.7,423.812,240.1,423.812,265.6z"></path> </g> </g> </g></svg>
+            <h1>
+               <h5 class="text-2xl pl-3 font-semibold tracking-tight text-gray-900 dark:text-white">{{ total_profit }}</h5>
+            </h1>
+         </div>
+         <p class="mb-3 font-normal text-gray-600 dark:text-gray-400">All time amount made on sales</p>
+         <a href="{% url 'dashboard:stock_list' %}" class="inline-flex font-medium items-center text-blue-600 hover:underline">
+             View the sales list
+             <svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
+                 <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"/>
+             </svg>
+         </a>
+      </div>
+
+
+
+
+           
+
             
          </div>
       </div>
+
+
    </div>
+
+
+
+
+
+   <div class="p-4 sm:ml-64">
+      
+
+      <div class="p-4 mt-2 border-2 border-green-200 border-dashed rounded-lg dark:border-gray-700">
+         <div class="grid items-center justify-center mb-4">
+
+
+
+            <div class="max-w-sm  p-6 bg-gray-50 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+               <div class="flex">
+                  <svg class="flex-shrink-0 w-10 h-10 text-gray-50 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" version="1.1" id="_x34_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="250.6101" y1="128.0113" x2="501.2197" y2="128.0113"> <stop offset="0.0918" style="stop-color:#ededed"></stop> <stop offset="1" style="stop-color:#F7F7F7"></stop> </linearGradient> <path style="fill:url(#SVGID_1_);" d="M501.22,41.433v214.59H250.61V0h209.178c5.088,0,10.015,0.889,14.537,2.666 c11.226,4.2,20.11,13.085,24.229,24.229C500.251,31.418,501.22,36.344,501.22,41.433z"></path> <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="0" y1="128.0113" x2="250.6101" y2="128.0113"> <stop offset="0.0918" style="stop-color:#ededed"></stop> <stop offset="1" style="stop-color:#F7F7F7"></stop> </linearGradient> <path style="fill:url(#SVGID_2_);" d="M250.61,0v256.023H0V41.433C0,18.576,18.576,0,41.432,0H250.61z"></path> <linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="-0.0365" y1="384.0052" x2="501.2233" y2="384.0052"> <stop offset="0.0338" style="stop-color:#57BDB0"></stop> <stop offset="1" style="stop-color:#54BB9E"></stop> </linearGradient> <path style="fill:url(#SVGID_3_);" d="M501.223,256.01v214.57c0,22.903-18.55,41.42-41.42,41.42h-209.21V256.01H501.223z"></path> <linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="0" y1="383.9925" x2="250.6101" y2="383.9925"> <stop offset="0.0918" style="stop-color:#ededed"></stop> <stop offset="1" style="stop-color:#F7F7F7"></stop> </linearGradient> <path style="fill:url(#SVGID_4_);" d="M250.61,256.023v255.94H41.432c-5.734,0-11.145-1.132-16.072-3.23 c-10.015-4.2-18.01-12.276-22.21-22.21C1.131,481.595,0,476.266,0,470.61V256.023H250.61z"></path> <polygon style="fill:#FFFFFF;" points="136.154,117.862 136.154,86.02 114.461,86.02 114.461,117.862 81.889,117.862 81.889,137.94 114.461,137.94 114.461,170.045 136.154,170.045 136.154,137.94 168.729,137.94 168.729,117.862 "></polygon> <rect x="343.027" y="117.17" style="fill:#FFFFFF;" width="65.765" height="21.722"></rect> <polygon style="fill:#FFFFFF;" points="164.069,359.53 150.69,346.624 125.307,371.116 99.928,346.624 86.549,359.53 111.929,384.021 86.549,408.506 99.928,421.418 125.307,396.927 150.69,421.418 164.069,408.506 138.686,384.021 "></polygon> <linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="338.6428" y1="384.032" x2="413.1875" y2="384.032"> <stop offset="0.0338" style="stop-color:#FFFFFF"></stop> <stop offset="1" style="stop-color:#54BB9E"></stop> </linearGradient> <path style="opacity:0.4;fill:url(#SVGID_5_);" d="M338.643,394.289v14.053h74.545v-14.053H338.643z M338.643,359.722v14.053 h74.545v-14.053H338.643z"></path> <rect x="247.379" style="fill:#a5ada4;" width="6.461" height="511.962"></rect> <rect y="252.791" style="fill:#a5ada4;" width="501.22" height="6.462"></rect> <path style="fill:#FFFFFF;" d="M336.704,393.078v13.972h74.626v-13.972H336.704z M336.704,358.511v14.053h74.626v-14.053H336.704z"></path> <polygon style="fill:#979696;" points="134.259,116.643 134.259,84.801 112.566,84.801 112.566,116.643 79.994,116.643 79.994,136.722 112.566,136.722 112.566,168.827 134.259,168.827 134.259,136.722 166.834,136.722 166.834,116.643 "></polygon> <rect x="341.132" y="115.952" style="fill:#979696;" width="65.765" height="21.722"></rect> <polygon style="fill:#979696;" points="162.174,358.312 148.795,345.406 123.412,369.898 98.033,345.406 84.655,358.312 110.034,382.803 84.655,407.288 98.033,420.2 123.412,395.709 148.795,420.2 162.174,407.288 136.791,382.803 "></polygon> </g> </g></svg>
+                  <h1>
+                     <h5 class="text-2xl pl-3 font-semibold tracking-tight text-gray-900 dark:text-white">Budget Calculator</h5>
+                  </h1>
+               </div>
+
+          </div>
+
+
+
+
+
+
+            
+         </div>
+      </div>
+
+
+   </div>
+
 
 {% endblock %}

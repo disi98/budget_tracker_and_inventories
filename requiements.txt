@@ -5,3 +5,5 @@ django-filter
 django-compressor
 django-grappelli
 django-crispy-forms
+Matplotlib
+plotly
