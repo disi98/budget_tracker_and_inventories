@@ -11,13 +11,18 @@
 {% endblock %}
 
 {% block content %}
+<style>
+   .remove-item {
+       cursor: pointer;
+       color: red;
+   }
+</style>
 
-
-   <div class="p-4 sm:ml-64">
+   <div class="px-4 sm:ml-64 ">
       
 
-      <div class="p-4 mt-2 border-2 border-green-200 border-dashed rounded-lg dark:border-gray-700">
-         <div class="grid lg:grid-cols-4 gap-1 mb-4">
+      <div class="p-4 mt-2 border-2 bg-gray-50 border-green-200 border-dashed rounded-lg dark:border-gray-700">
+         <div class="grid lg:grid-cols-3 pb-4 gap-1 mb-4">
 
 
 
@@ -95,17 +100,21 @@
 
       <div class="max-w-sm p-6 bg-gray-50 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
          <div class="flex">
-            <svg class="flex-shrink-0 w-10 h-10 text-gray-50 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" fill="#0c9d29" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 508 508" xml:space="preserve" stroke="#0c9d29"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <path d="M371.712,260.7c-1.5-7.2-6.1-13-13.9-17.5c-7.7-4.4-17.5-6.7-29.4-6.7c-11.9,0-21,1.9-27.3,5.8 c-6.3,3.9-11.4,10-15.1,18.3h-30.844c2.629-4.975,8.706-10.541,18.044-16.7l-23.5-11.1c-13.2,8.5-21.2,17.8-24,27.8h-15.2v12.6 h14.5c1.5,7.6,6.2,13.7,14,18.2c7.8,4.6,17.6,6.8,29.6,6.8s21.2-2,27.7-6.1c6.5-4.1,11.7-10.4,15.6-19h30 c-2.1,4.3-6.3,8.9-12.5,13.9l24.6,10c9.6-7.8,15.3-15.7,17.3-23.7h10.6v-12.6H371.712z M266.913,279.4c-6.4,0-10.7-2-12.9-6.1 h25.6C277.712,277.2,272.812,279.4,266.913,279.4z M318.612,260.7c2.9-3.4,7.1-5.1,12.7-5.1c5.6,0,9.4,1.7,11.5,5.1H318.612z"></path> </g> </g> <g> <g> <path d="M450.913,0h-102.8c-7.8,0-14.1,6.3-14.1,14.1c0,7.8,6.3,14.1,14.1,14.1h68.7L268.113,177l-54.3-54.3 c-5.5-5.5-14.4-5.5-20,0l-146.7,146.7c-5.5,5.5-5.5,14.4,0,20c4.8,4.8,15.4,4.5,20,0l136.7-136.7l36.1,36.1 c-59.3,11.4-99.5,40.7-99.5,76.9v150.8c0,51.3,68.5,91.5,155.8,91.5c87.4,0,155.8-40.2,155.8-91.5V265.6 c0-45.9-64.4-80.7-150.7-82l135.5-135.4v68.7c0,7.8,6.3,14.1,14.1,14.1c7.8,0,14.1-6.3,14.1-14.1V14.1 C465.012,6.3,458.712,0,450.913,0z M423.813,416.5c0,30.5-51.3,63.3-127.6,63.3s-127.6-32.7-127.6-63.3v-24.3 c28,23.4,74.2,38.4,127.6,38.4s99.7-15,127.6-38.4V416.5z M423.813,339L423.813,339c0,30.6-51.3,63.3-127.6,63.3 s-127.6-32.7-127.6-63.3v-25.1c27.7,20.8,73.6,33.9,127.6,33.9c54.1,0,99.9-13.1,127.6-33.9V339z M423.812,265.6 c0,25.5-52.4,54-127.6,54s-127.6-28.4-127.6-54c0-25.6,52.4-54,127.6-54C371.413,211.7,423.812,240.1,423.812,265.6z"></path> </g> </g> </g></svg>
+
+            <svg class="flex-shrink-0 w-10 h-10 text-gray-50 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white"  fill="#bfb903" height="200px" width="200px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 481.875 481.875" xml:space="preserve" stroke="#bfb903"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <g> <polygon points="463.356,229.099 440.625,291.93 75.846,291.93 75.846,19.522 0,19.522 0,39.214 56.154,39.214 56.154,311.623 454.433,311.623 481.875,235.8 "></polygon> </g> </g> <g> <g> <path d="M335.971,340.325c-33.644,0-61.01,27.37-61.01,61.014c0,33.644,27.365,61.014,61.01,61.014s61.019-27.37,61.019-61.014 C396.99,367.695,369.615,340.325,335.971,340.325z M335.971,442.661c-22.779,0-41.317-18.538-41.317-41.322 c0-22.784,18.538-41.322,41.317-41.322c22.788,0,41.327,18.538,41.327,41.322C377.298,424.123,358.76,442.661,335.971,442.661z"></path> </g> </g> <g> <g> <path d="M145.308,340.325c-33.644,0-61.014,27.37-61.014,61.014c0,33.644,27.37,61.014,61.014,61.014s61.014-27.37,61.014-61.014 C206.322,367.695,178.952,340.325,145.308,340.325z M145.308,442.661c-22.784,0-41.322-18.538-41.322-41.322 c0-22.784,18.538-41.322,41.322-41.322c22.784,0,41.322,18.538,41.322,41.322C186.63,424.123,168.091,442.661,145.308,442.661z"></path> </g> </g> </g></svg>
+
             <h1>
                <h5 class="text-2xl pl-3 font-semibold tracking-tight text-gray-900 dark:text-white">{{ total_profit }}</h5>
             </h1>
          </div>
-         <p class="mb-3 font-normal text-gray-600 dark:text-gray-400">All time amount made on sales</p>
+         <p class="mb-3 font-normal text-gray-600 dark:text-gray-400">All time spent on stock</p>
          <a href="{% url 'dashboard:stock_list' %}" class="inline-flex font-medium items-center text-blue-600 hover:underline">
              View the sales list
              <svg class="w-3 h-3 ms-2.5 rtl:rotate-[270deg]" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 18 18">
                  <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11v4.833A1.166 1.166 0 0 1 13.833 17H2.167A1.167 1.167 0 0 1 1 15.833V4.167A1.166 1.166 0 0 1 2.167 3h4.618m4.447-2H17v5.768M9.111 8.889l7.778-7.778"/>
              </svg>
+
+
          </a>
       </div>
 
@@ -125,24 +134,37 @@
 
 
 
-   <div class="p-4 sm:ml-64">
+   <div class="px-4 pt-2 sm:ml-64">
       
 
-      <div class="p-4 mt-2 border-2 border-green-200 border-dashed rounded-lg dark:border-gray-700">
+      <div class="p-4 mt-0 border-2 border-green-200 border-dashed rounded-lg dark:border-gray-700">
          <div class="grid items-center justify-center mb-4">
 
 
-
-            <div class="max-w-sm  p-6 bg-gray-50 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
+            <div class="max-w-sm p-6 bg-gray-50 border border-gray-200 rounded-lg shadow dark:bg-gray-800 dark:border-gray-700">
                <div class="flex">
-                  <svg class="flex-shrink-0 w-10 h-10 text-gray-50 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" version="1.1" id="_x34_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="250.6101" y1="128.0113" x2="501.2197" y2="128.0113"> <stop offset="0.0918" style="stop-color:#ededed"></stop> <stop offset="1" style="stop-color:#F7F7F7"></stop> </linearGradient> <path style="fill:url(#SVGID_1_);" d="M501.22,41.433v214.59H250.61V0h209.178c5.088,0,10.015,0.889,14.537,2.666 c11.226,4.2,20.11,13.085,24.229,24.229C500.251,31.418,501.22,36.344,501.22,41.433z"></path> <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="0" y1="128.0113" x2="250.6101" y2="128.0113"> <stop offset="0.0918" style="stop-color:#ededed"></stop> <stop offset="1" style="stop-color:#F7F7F7"></stop> </linearGradient> <path style="fill:url(#SVGID_2_);" d="M250.61,0v256.023H0V41.433C0,18.576,18.576,0,41.432,0H250.61z"></path> <linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="-0.0365" y1="384.0052" x2="501.2233" y2="384.0052"> <stop offset="0.0338" style="stop-color:#57BDB0"></stop> <stop offset="1" style="stop-color:#54BB9E"></stop> </linearGradient> <path style="fill:url(#SVGID_3_);" d="M501.223,256.01v214.57c0,22.903-18.55,41.42-41.42,41.42h-209.21V256.01H501.223z"></path> <linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="0" y1="383.9925" x2="250.6101" y2="383.9925"> <stop offset="0.0918" style="stop-color:#ededed"></stop> <stop offset="1" style="stop-color:#F7F7F7"></stop> </linearGradient> <path style="fill:url(#SVGID_4_);" d="M250.61,256.023v255.94H41.432c-5.734,0-11.145-1.132-16.072-3.23 c-10.015-4.2-18.01-12.276-22.21-22.21C1.131,481.595,0,476.266,0,470.61V256.023H250.61z"></path> <polygon style="fill:#FFFFFF;" points="136.154,117.862 136.154,86.02 114.461,86.02 114.461,117.862 81.889,117.862 81.889,137.94 114.461,137.94 114.461,170.045 136.154,170.045 136.154,137.94 168.729,137.94 168.729,117.862 "></polygon> <rect x="343.027" y="117.17" style="fill:#FFFFFF;" width="65.765" height="21.722"></rect> <polygon style="fill:#FFFFFF;" points="164.069,359.53 150.69,346.624 125.307,371.116 99.928,346.624 86.549,359.53 111.929,384.021 86.549,408.506 99.928,421.418 125.307,396.927 150.69,421.418 164.069,408.506 138.686,384.021 "></polygon> <linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="338.6428" y1="384.032" x2="413.1875" y2="384.032"> <stop offset="0.0338" style="stop-color:#FFFFFF"></stop> <stop offset="1" style="stop-color:#54BB9E"></stop> </linearGradient> <path style="opacity:0.4;fill:url(#SVGID_5_);" d="M338.643,394.289v14.053h74.545v-14.053H338.643z M338.643,359.722v14.053 h74.545v-14.053H338.643z"></path> <rect x="247.379" style="fill:#a5ada4;" width="6.461" height="511.962"></rect> <rect y="252.791" style="fill:#a5ada4;" width="501.22" height="6.462"></rect> <path style="fill:#FFFFFF;" d="M336.704,393.078v13.972h74.626v-13.972H336.704z M336.704,358.511v14.053h74.626v-14.053H336.704z"></path> <polygon style="fill:#979696;" points="134.259,116.643 134.259,84.801 112.566,84.801 112.566,116.643 79.994,116.643 79.994,136.722 112.566,136.722 112.566,168.827 134.259,168.827 134.259,136.722 166.834,136.722 166.834,116.643 "></polygon> <rect x="341.132" y="115.952" style="fill:#979696;" width="65.765" height="21.722"></rect> <polygon style="fill:#979696;" points="162.174,358.312 148.795,345.406 123.412,369.898 98.033,345.406 84.655,358.312 110.034,382.803 84.655,407.288 98.033,420.2 123.412,395.709 148.795,420.2 162.174,407.288 136.791,382.803 "></polygon> </g> </g></svg>
-                  <h1>
-                     <h5 class="text-2xl pl-3 font-semibold tracking-tight text-gray-900 dark:text-white">Budget Calculator</h5>
-                  </h1>
+                   <svg class="flex-shrink-0 w-10 h-10 text-gray-50 transition duration-75 dark:text-gray-400 group-hover:text-gray-900 dark:group-hover:text-white" version="1.1" id="_x34_" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 512 512" xml:space="preserve" fill="#000000"><g id="SVGRepo_bgCarrier" stroke-width="0"></g><g id="SVGRepo_tracerCarrier" stroke-linecap="round" stroke-linejoin="round"></g><g id="SVGRepo_iconCarrier"> <g> <linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="250.6101" y1="128.0113" x2="501.2197" y2="128.0113"> <stop offset="0.0918" style="stop-color:#ededed"></stop> <stop offset="1" style="stop-color:#F7F7F7"></stop> </linearGradient> <path style="fill:url(#SVGID_1_);" d="M501.22,41.433v214.59H250.61V0h209.178c5.088,0,10.015,0.889,14.537,2.666 c11.226,4.2,20.11,13.085,24.229,24.229C500.251,31.418,501.22,36.344,501.22,41.433z"></path> <linearGradient id="SVGID_2_" gradientUnits="userSpaceOnUse" x1="0" y1="128.0113" x2="250.6101" y2="128.0113"> <stop offset="0.0918" style="stop-color:#ededed"></stop> <stop offset="1" style="stop-color:#F7F7F7"></stop> </linearGradient> <path style="fill:url(#SVGID_2_);" d="M250.61,0v256.023H0V41.433C0,18.576,18.576,0,41.432,0H250.61z"></path> <linearGradient id="SVGID_3_" gradientUnits="userSpaceOnUse" x1="-0.0365" y1="384.0052" x2="501.2233" y2="384.0052"> <stop offset="0.0338" style="stop-color:#57BDB0"></stop> <stop offset="1" style="stop-color:#54BB9E"></stop> </linearGradient> <path style="fill:url(#SVGID_3_);" d="M501.223,256.01v214.57c0,22.903-18.55,41.42-41.42,41.42h-209.21V256.01H501.223z"></path> <linearGradient id="SVGID_4_" gradientUnits="userSpaceOnUse" x1="0" y1="383.9925" x2="250.6101" y2="383.9925"> <stop offset="0.0918" style="stop-color:#ededed"></stop> <stop offset="1" style="stop-color:#F7F7F7"></stop> </linearGradient> <path style="fill:url(#SVGID_4_);" d="M250.61,256.023v255.94H41.432c-5.734,0-11.145-1.132-16.072-3.23 c-10.015-4.2-18.01-12.276-22.21-22.21C1.131,481.595,0,476.266,0,470.61V256.023H250.61z"></path> <polygon style="fill:#FFFFFF;" points="136.154,117.862 136.154,86.02 114.461,86.02 114.461,117.862 81.889,117.862 81.889,137.94 114.461,137.94 114.461,170.045 136.154,170.045 136.154,137.94 168.729,137.94 168.729,117.862 "></polygon> <rect x="343.027" y="117.17" style="fill:#FFFFFF;" width="65.765" height="21.722"></rect> <polygon style="fill:#FFFFFF;" points="164.069,359.53 150.69,346.624 125.307,371.116 99.928,346.624 86.549,359.53 111.929,384.021 86.549,408.506 99.928,421.418 125.307,396.927 150.69,421.418 164.069,408.506 138.686,384.021 "></polygon> <linearGradient id="SVGID_5_" gradientUnits="userSpaceOnUse" x1="338.6428" y1="384.032" x2="413.1875" y2="384.032"> <stop offset="0.0338" style="stop-color:#FFFFFF"></stop> <stop offset="1" style="stop-color:#54BB9E"></stop> </linearGradient> <path style="opacity:0.4;fill:url(#SVGID_5_);" d="M338.643,394.289v14.053h74.545v-14.053H338.643z M338.643,359.722v14.053 h74.545v-14.053H338.643z"></path> <rect x="247.379" style="fill:#a5ada4;" width="6.461" height="511.962"></rect> <rect y="252.791" style="fill:#a5ada4;" width="501.22" height="6.462"></rect> <path style="fill:#FFFFFF;" d="M336.704,393.078v13.972h74.626v-13.972H336.704z M336.704,358.511v14.053h74.626v-14.053H336.704z"></path> <polygon style="fill:#979696;" points="134.259,116.643 134.259,84.801 112.566,84.801 112.566,116.643 79.994,116.643 79.994,136.722 112.566,136.722 112.566,168.827 134.259,168.827 134.259,136.722 166.834,136.722 166.834,116.643 "></polygon> <rect x="341.132" y="115.952" style="fill:#979696;" width="65.765" height="21.722"></rect> <polygon style="fill:#979696;" points="162.174,358.312 148.795,345.406 123.412,369.898 98.033,345.406 84.655,358.312 110.034,382.803 84.655,407.288 98.033,420.2 123.412,395.709 148.795,420.2 162.174,407.288 136.791,382.803 "></polygon> </g> </g></svg>
+                   <h1>
+                       <h5 class="text-2xl pl-3 font-semibold tracking-tight text-gray-900 dark:text-white">Budget Calculator</h5>
+                   </h1>
                </div>
+           
+               <div id="calculator" class="mt-5">
+                   <div class="item-row">
+                       <input type="text" placeholder="Item Name" class="item-name border rounded-lg border-teal-400 mb-3 w-full">
+                       <input type="text" placeholder="Description" class="item-description border rounded-lg border-teal-400 mb-3 w-full">
+                       <input type="number" placeholder="Amount" class="item-amount border rounded-lg border-teal-400 mb-3 w-full">
+                       <input type="number" placeholder="Quantity" class="item-quantity border rounded-lg border-teal-400 mb-3 w-full">
+                       <div class="item-total text-lg text-green-600 font-bold">Total: $0.00</div>
+                   </div>
+               </div>
+               <button id="add-item" class="border rounded-lg px-2 mt-3 bg-red-200">Add Item</button>
+               <button id="generate-receipt" class="border rounded-lg px-2 mt-3 bg-green-200">Generate Receipt</button>
 
-          </div>
-
+               <div class="receipt" id="receipt"></div>
+               <div id="total-amount" class="mt-3">Total Amount: $0.00</div>
+               <button id="download-receipt" class="border rounded-lg px-2 mt-3 bg-blue-200">Download Receipt</button>
+           </div>
 
 
 
@@ -156,4 +178,139 @@
    </div>
 
 
+
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+   <script>
+       document.getElementById('add-item').addEventListener('click', addItem);
+       document.getElementById('generate-receipt').addEventListener('click', generateReceipt);
+       document.getElementById('download-receipt').addEventListener('click', downloadReceipt);
+   
+       function addItem() {
+           const calculator = document.getElementById('calculator');
+           const itemRow = document.querySelector('.item-row');
+           const name = itemRow.querySelector('.item-name').value;
+           const description = itemRow.querySelector('.item-description').value;
+           const amount = parseFloat(itemRow.querySelector('.item-amount').value) || 0;
+           const quantity = parseFloat(itemRow.querySelector('.item-quantity').value) || 0;
+           const total = amount * quantity;
+   
+           if (name && description && amount && quantity) {
+               const newItemRow = document.createElement('div');
+               newItemRow.className = 'item-row';
+               newItemRow.innerHTML = `
+                   <span class="item-name">${name}</span>
+                   <span class="item-description">${description}</span>
+                   <span class="item-amount">${amount.toFixed(2)}</span>
+                   <span class="item-quantity">${quantity}</span>
+                   <span class="item-total">Total: $${total.toFixed(2)}</span>
+                   <button class="remove-item">Remove</button>
+               `;
+               calculator.appendChild(newItemRow);
+   
+               // Add event listener to the remove button
+               newItemRow.querySelector('.remove-item').addEventListener('click', removeItem);
+   
+               // Clear input fields
+               itemRow.querySelector('.item-name').value = '';
+               itemRow.querySelector('.item-description').value = '';
+               itemRow.querySelector('.item-amount').value = '';
+               itemRow.querySelector('.item-quantity').value = '';
+   
+               // Update total amount
+               updateTotalAmount();
+           }
+       }
+   
+       function addEventListeners(itemRow) {
+           const amountInput = itemRow.querySelector('.item-amount');
+           const quantityInput = itemRow.querySelector('.item-quantity');
+           amountInput.addEventListener('input', updateTotal);
+           quantityInput.addEventListener('input', updateTotal);
+       }
+   
+       function updateTotal(event) {
+           const itemRow = event.target.parentElement;
+           const amount = parseFloat(itemRow.querySelector('.item-amount').value) || 0;
+           const quantity = parseFloat(itemRow.querySelector('.item-quantity').value) || 0;
+           const total = amount * quantity;
+           itemRow.querySelector('.item-total').textContent = `Total: $${total.toFixed(2)}`;
+   
+           // Update total amount
+           updateTotalAmount();
+       }
+   
+       function generateReceipt() {
+           const receipt = document.getElementById('receipt');
+           receipt.innerHTML = '<h2>Receipt</h2>';
+           const items = document.querySelectorAll('.item-row');
+           items.forEach(itemRow => {
+               const name = itemRow.querySelector('.item-name').textContent;
+               const description = itemRow.querySelector('.item-description').textContent;
+               const amount = parseFloat(itemRow.querySelector('.item-amount').textContent) || 0;
+               const quantity = parseFloat(itemRow.querySelector('.item-quantity').textContent) || 0;
+               const total = amount * quantity;
+               if (name && description && amount && quantity) {
+                   const itemReceipt = document.createElement('div');
+                   itemReceipt.textContent = `${name} (${description}): $${amount.toFixed(2)} x ${quantity} = $${total.toFixed(2)}`;
+                   receipt.appendChild(itemReceipt);
+               }
+           });
+       }
+   
+       function removeItem(event) {
+           const itemRow = event.target.parentElement;
+           itemRow.remove();
+   
+           // Update total amount
+           updateTotalAmount();
+       }
+   
+       function updateTotalAmount() {
+           const items = document.querySelectorAll('.item-row');
+           let totalAmount = 0;
+           items.forEach(itemRow => {
+               const amount = parseFloat(itemRow.querySelector('.item-amount').textContent) || 0;
+               const quantity = parseFloat(itemRow.querySelector('.item-quantity').textContent) || 0;
+               totalAmount += amount * quantity;
+           });
+           document.getElementById('total-amount').textContent = `Total Amount: $${totalAmount.toFixed(2)}`;
+       }
+   
+       async function downloadReceipt() {
+           const { jsPDF } = window.jspdf;
+           const doc = new jsPDF();
+   
+           doc.text('Receipt', 10, 10);
+           doc.text('Item', 10, 20);
+           doc.text('Description', 50, 20);
+           doc.text('Amount', 100, 20);
+           doc.text('Quantity', 140, 20);
+           doc.text('Total', 180, 20);
+   
+           const items = document.querySelectorAll('.item-row');
+           let y = 30;
+           items.forEach(itemRow => {
+               const name = itemRow.querySelector('.item-name').textContent;
+               const description = itemRow.querySelector('.item-description').textContent;
+               const amount = parseFloat(itemRow.querySelector('.item-amount').textContent) || 0;
+               const quantity = parseFloat(itemRow.querySelector('.item-quantity').textContent) || 0;
+               const total = amount * quantity;
+   
+               doc.text(name, 10, y);
+               doc.text(description, 50, y);
+               doc.text(amount.toFixed(2), 100, y);
+               doc.text(quantity.toString(), 140, y);
+               doc.text(total.toFixed(2), 180, y);
+   
+               y += 10;
+           });
+   
+           doc.save('receipt.pdf');
+       }
+   
+       // Initialize event listeners for the first item row
+       addEventListeners(document.querySelector('.item-row'));
+   </script>
+   
 {% endblock %}

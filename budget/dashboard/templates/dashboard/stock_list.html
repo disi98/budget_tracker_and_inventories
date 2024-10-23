@@ -17,23 +17,25 @@
        <div class="grid mb-4">
             {% csrf_token %}
 
-            <div class="grid w-40 mb-2">
-               <a href="{% url 'dashboard:stock' %}">
-                  <h1 class="flex text-blue-800 font-medium text-lg px-2 bg-green-100 border rounded-lg">
-                     <img src="{% static 'img/add-svgrepo-com.svg' %}" alt="plus" class="w-7 h-7">
-                     Add to stock
-                  </h1>
-               </a>
-            </div>
+               <div class="flex">
+                     <div class="grid w-40 mb-2 mr-2">
+                     <a href="{% url 'dashboard:stock' %}">
+                        <h1 class="flex text-blue-800 font-medium text-lg px-2 bg-green-100 border rounded-lg">
+                           <img src="{% static 'img/add-svgrepo-com.svg' %}" alt="plus" class="w-7 h-7">
+                           Add to stock
+                        </h1>
+                     </a>
+                  </div>
 
-            <div class="grid w-40 mb-2">
-               <a href="{% url 'dashboard:add_category' %}">
-                  <h1 class="flex text-blue-800 font-medium text-lg px-2 bg-green-100 border rounded-lg">
-                     <img src="{% static 'img/add-svgrepo-com.svg' %}" alt="plus" class="w-7 h-7">
-                     Add Category
-                  </h1>
-               </a>
-            </div>
+                  <div class="grid w-40 mb-2">
+                     <a href="{% url 'dashboard:add_category' %}">
+                        <h1 class="flex text-blue-800 font-medium text-lg px-2 bg-red-300 border rounded-lg">
+                           <img src="{% static 'img/add-svgrepo-com.svg' %}" alt="plus" class="w-7 h-7">
+                           Add Category
+                        </h1>
+                     </a>
+                  </div>
+               </div>
 
             <div class="relative overflow-x-auto shadow-md sm:rounded-lg">
                <table class="w-full text-sm text-left rtl:text-right text-gray-500 dark:text-gray-400">
@@ -54,7 +56,7 @@
                      {% for item in items %}
                         <tr id="item-row-{{ item.id }}" class="bg-white border-b dark:bg-gray-800 dark:border-gray-700">
                            <th scope="row" class="md:px-6 md:py-3 lg:px-6 lg:py-3 bg-gray-50 font-medium text-gray-900 dark:text-white border-gray-300">
-                              {{ item.name }} | {{ item.transaction_type }} || {{ item.id }}
+                              {{ item.name }}
                            </th>
                            <td class="md:px-6 md:py-3 lg:px-6 lg:py-3 border border-gray-300">
                               {{ item.category }}

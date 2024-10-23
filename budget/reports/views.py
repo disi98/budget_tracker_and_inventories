@@ -7,6 +7,9 @@ from django.db.models import Sum
 from inventory.models import InventoryItem
 
 def get_inventory_data(request):
+    sold = InventoryItem.total_quantity_sold()
+    instock = InventoryItem.total_quantity_in_stock()
+
     date_str = request.GET.get('date', datetime.now().strftime('%Y-%m-%d'))
     selected_date = datetime.strptime(date_str, '%Y-%m-%d').date()
 
@@ -81,5 +84,7 @@ def get_inventory_data(request):
         'daily_sales_price': daily_sales_price,
         'image_sold_base64': image_sold_base64,
         'image_stocked_base64': image_stocked_base64,
+        'instock': instock,
+        'sold': sold
     }
     return render(request, 'reports/get_inventory_data.html', context)
